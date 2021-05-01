@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-import {    Connection} from 'mongoose';
+import mongoose, {Connection} from 'mongoose';
 import dotenv from 'dotenv';
 
 class Database {
