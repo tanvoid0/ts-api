@@ -1,8 +1,7 @@
-
 import express, {Request, Response} from "express";
-// require('dotenv').config();
 import dotenv from 'dotenv';
 
+import db from "./config/db.config";
 
 class App {
     public app: express.Application;
@@ -19,6 +18,7 @@ class App {
     private config(): void{
         dotenv.config();
 
+        db.connect();
         this.app.set("port", this.port);
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
