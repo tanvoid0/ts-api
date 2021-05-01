@@ -1,5 +1,4 @@
 import express from "express";
-import compression from 'compression';
 import cors from 'cors';
 import * as dotenv from "dotenv";
 import session from 'express-session';
@@ -58,7 +57,6 @@ class App {
         this.app.set("port", port);
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
-        this.app.use(compression());
         this.app.use(cors());
         this.app.use(session({
             secret: secret,
