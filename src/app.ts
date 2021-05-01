@@ -9,15 +9,19 @@ class App {
     private port: string|number;
 
     constructor() {
-        dotenv.config();
+        this.port = process.env.PORT || 5000
         this.app = express();
         this.config();
         this.middleware();
         this.routes();
-        this.port = process.env.PORT || 5000
     }
 
     private config(): void{
+        dotenv.config();
+
+        this.app.set("port", this.port);
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({extended: false}));
     }
 
     private middleware(): void {
