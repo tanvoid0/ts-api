@@ -4,8 +4,8 @@
   "description": "`npm i`",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/config/server.ts",
-    "dev": "nodemon -x ts-node src/config/server.ts"
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon -x ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
