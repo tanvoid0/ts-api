@@ -1,7 +1,9 @@
-import * as mongoose from 'mongoose';
+const mongoose = require("mongoose");
+import {    Connection} from 'mongoose';
+import dotenv from 'dotenv';
 
 class Database {
-    public database: mongoose.Connection | null;
+    public database: Connection | null;
     public uri: string;
 
     private db_options = {
@@ -15,9 +17,10 @@ class Database {
     };
 
     constructor() {
+        dotenv.config();
         this.database = null;
 
-        if(process.env.NODE_ENV === "production"){
+        if (process.env.NODE_ENV === "production") {
             this.uri = process.env.DB_STRING_PROD || "";
         } else {
             this.uri = process.env.DB_STRING || "";
@@ -25,12 +28,13 @@ class Database {
     }
 
     public connect() {
-        if(this.database) {
+        if (this.database) {
             return;
         }
-        mongoose.connect(this.uri, this.db_options).then(result => {
+        mongoose.connect(this.uri, this.db_options)
+            .then((res: any) => {
             console.log("Connected to database");
-        }).catch(error => {
+        }).catch((error: any) => {
             console.log("Error connecting to mongodb", error);
         });
 

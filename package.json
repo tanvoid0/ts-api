@@ -38,6 +38,7 @@
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.10",
     "@types/express-session": "^1.17.3",
+    "@types/mongoose": "^5.10.5",
     "@types/passport": "^1.0.6",
     "cookie-parser": "^1.4.5",
     "mongoose": "^5.12.7",
